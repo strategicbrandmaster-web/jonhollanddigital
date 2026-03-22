@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<title>Jon Holland Digital — Local Business Marketing in San Antonio</title>
+<meta name="description" content="Google Business Profile optimization, direct mail, and print services for San Antonio service businesses. Free Google audit available.">
+<meta property="og:title" content="Jon Holland Digital — Local Business Marketing in San Antonio">
+<meta property="og:description" content="Google Business Profile optimization, direct mail, and print services for San Antonio service businesses. Free audit available.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jonhollanddigital.com">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --stone-50:#fafaf9;--stone-200:#e7e5e4;--stone-300:#d6d3d1;--stone-400:#a8a29e;
+    --stone-600:#57534e;--stone-800:#292524;--stone-900:#1c1917;--amber-500:#f59e0b;
+    --teal-700:#0f766e;--white:#ffffff;
+    --font-display:'Fraunces',Georgia,serif;--font-body:'DM Sans',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;color-scheme:light only}
+  body{font-family:var(--font-body);color:#292524;background:#fafaf9;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px}
+  .label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--teal-700);margin-bottom:12px;display:block}
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--stone-200)}
+  .nav-inner{max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+  .nav-logo{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--stone-900);text-decoration:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .25s;min-height:44px}
+  .btn-pill{padding:12px 24px;border-radius:9999px;font-size:.95rem}
+  .btn-primary{background:var(--stone-900);color:var(--white)}
+  .btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+  .btn-secondary{background:transparent;color:var(--stone-800);border:1.5px solid var(--stone-300);border-radius:9999px;padding:12px 24px;font-size:.95rem}
+  .btn-secondary:hover{border-color:var(--stone-600)}
+  .btn-white{background:var(--white);color:var(--stone-900);padding:14px 28px;border-radius:9999px;font-size:1rem;justify-content:center;width:100%}
+  .btn-white:hover{background:var(--stone-200)}
+  .nav-cta{padding:9px 18px;border-radius:9999px;font-size:.85rem;background:var(--stone-900);color:var(--white)}
+  /* HERO */
+  .hero{padding:80px 0 60px}
+  .hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,5.5vw,3.8rem);line-height:1.08;color:var(--stone-900);letter-spacing:-.03em;max-width:720px;margin-bottom:20px}
+  .hero p{font-size:1.15rem;color:var(--stone-600);max-width:560px;line-height:1.7;margin-bottom:32px}
+  .hero-btns{display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap}
+  .trust-row{display:flex;gap:28px;flex-wrap:wrap}
+  .trust-item{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--stone-600);font-weight:500}
+  .trust-dot{width:6px;height:6px;border-radius:50%;background:var(--teal-700);flex-shrink:0}
+  /* SECTIONS */
+  section{padding:80px 0}
+  .section-title{font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3.5vw,2.3rem);color:var(--stone-900);letter-spacing:-.02em;margin-bottom:12px;max-width:600px}
+  .section-sub{font-size:1.05rem;color:var(--stone-600);max-width:540px;margin-bottom:40px;line-height:1.7}
+  /* SERVICE CARDS */
+  .services-bg{background:var(--white)}
+  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .service-card{background:var(--stone-50);padding:32px 28px;border-radius:14px;box-shadow:0 2px 16px rgba(0,0,0,.04);display:flex;flex-direction:column;gap:10px;transition:box-shadow .25s}
+  .service-card:hover{box-shadow:0 6px 28px rgba(0,0,0,.07)}
+  .service-num{font-family:var(--font-display);font-weight:700;font-size:1.8rem;color:var(--teal-700);line-height:1}
+  .service-card h3{font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--stone-900)}
+  .service-price{font-weight:700;font-size:.88rem;color:var(--teal-700)}
+  .service-card p.desc{font-size:.92rem;color:var(--stone-600);line-height:1.6}
+  /* STEPS */
+  .step-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px 56px}
+  .step{position:relative;padding-left:12px}
+  .step-watermark{font-family:var(--font-display);font-weight:800;font-size:5rem;color:rgba(0,0,0,.04);line-height:1;position:absolute;top:-18px;left:-8px;z-index:0;user-select:none;pointer-events:none}
+  .step-content{position:relative;z-index:1}
+  .step h3{font-weight:700;font-size:1.05rem;color:var(--stone-900);margin-bottom:6px}
+  .step p{font-size:.92rem;color:var(--stone-600);line-height:1.6}
+  /* AUDIT SECTION */
+  .audit-section{background:var(--stone-900);color:var(--white);position:relative;overflow:hidden}
+  .audit-section::before{content:'';position:absolute;top:-40%;right:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(15,118,110,.12) 0%,transparent 70%);pointer-events:none}
+  .audit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;position:relative;z-index:1}
+  .audit-section .label{color:var(--amber-500)}
+  .audit-section .section-title{color:var(--white);max-width:100%;font-size:clamp(1.6rem,3vw,2.4rem)}
+  .audit-left-sub{color:var(--stone-400);font-size:1rem;margin-bottom:28px;line-height:1.7}
+  .checklist{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .checklist li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--stone-300)}
+  .checklist li svg{flex-shrink:0;margin-top:2px;color:var(--teal-700)}
+  .audit-form-wrap{background:rgba(255,255,255,.03);padding:32px;border-radius:14px;border:1px solid rgba(255,255,255,.1)}
+  .audit-form{display:flex;flex-direction:column;gap:14px}
+  .audit-form input,.audit-form textarea{font-family:var(--font-body);font-size:.95rem;padding:14px 16px;border:1px solid rgba(255,255,255,.15);border-radius:10px;background:rgba(255,255,255,.06);color:var(--white);outline:none;width:100%;transition:border-color .2s}
+  .audit-form input::placeholder,.audit-form textarea::placeholder{color:var(--stone-400)}
+  .audit-form input:focus,.audit-form textarea:focus{border-color:rgba(255,255,255,.35)}
+  .audit-form textarea{resize:vertical;min-height:56px}
+  .audit-form-note{font-size:.78rem;color:var(--stone-400);text-align:center;margin-top:6px}
+  .audit-form-note a{color:var(--stone-300);text-decoration:underline}
+  #audit-success{display:none;text-align:center;padding:40px 20px}
+  #audit-success h3{font-family:var(--font-display);font-size:1.6rem;color:var(--white);margin-bottom:10px}
+  #audit-success p{color:var(--stone-300);font-size:.95rem;line-height:1.6}
+  /* PRICING */
+  .pricing-bg{background:var(--white)}
+  .pricing-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:28px}
+  .base-card{border:2px solid var(--stone-900);border-radius:14px;padding:32px 28px;position:relative;background:var(--white)}
+  .base-badge{position:absolute;top:-11px;left:24px;background:var(--stone-900);color:var(--white);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:4px 14px;border-radius:20px}
+  .base-card h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--stone-900);margin-bottom:4px}
+  .base-price{font-family:var(--font-display);font-weight:700;font-size:2rem;color:var(--stone-900);margin-bottom:4px}
+  .base-price span{font-size:.85rem;font-weight:400;color:var(--stone-600)}
+  .base-desc{font-size:.88rem;color:var(--stone-600);margin-bottom:18px;line-height:1.5}
+  .base-features{list-style:none}
+  .base-features li{font-size:.88rem;color:var(--stone-600);padding:7px 0;display:flex;align-items:flex-start;gap:10px}
+  .base-features li svg{flex-shrink:0;margin-top:2px;color:var(--teal-700)}
+  .stacks-card{background:var(--stone-50);border-radius:14px;padding:32px 28px;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+  .stacks-card h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--stone-900);margin-bottom:20px}
+  .stack-item{padding:16px 0;border-bottom:1px solid var(--stone-200)}
+  .stack-item:last-child{border-bottom:none}
+  .stack-name{font-weight:700;font-size:.95rem;color:var(--stone-900);margin-bottom:2px}
+  .stack-channels{font-size:.84rem;color:var(--stone-600);margin-bottom:2px}
+  .stack-pitch{font-size:.8rem;color:var(--stone-400);font-style:italic}
+  .stack-price{font-weight:700;font-size:1.05rem;color:var(--teal-700);margin-top:4px}
+  .addon-note{font-size:.84rem;color:var(--stone-600);margin-top:-4px;margin-bottom:18px}
+  .addon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .addon-card{background:var(--stone-50);padding:20px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.03);text-align:center}
+  .addon-card h4{font-family:var(--font-display);font-weight:700;font-size:.95rem;color:var(--stone-900);margin-bottom:4px}
+  .addon-price{font-weight:700;color:var(--teal-700);font-size:.95rem;margin-bottom:6px}
+  .addon-card p.desc{font-size:.8rem;color:var(--stone-600);line-height:1.5}
+  .pricing-footer{text-align:center;font-size:.88rem;color:var(--stone-600);margin-top:36px}
+  /* CLOSING CTA */
+  .closing-cta{text-align:center;padding:60px 0 100px}
+  .closing-cta h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);color:var(--stone-900);margin-bottom:12px}
+  .closing-cta p{font-size:1rem;color:var(--stone-600);margin-bottom:24px}
+  /* FOOTER */
+  footer{background:var(--stone-900);color:var(--stone-400);padding:48px 0}
+  .footer-grid{display:flex;justify-content:space-between;align-items:flex-start}
+  .footer-name{font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--white);margin-bottom:6px}
+  .footer-right{text-align:right}
+  .footer-right a{color:var(--stone-300);text-decoration:underline;text-underline-offset:2px}
+  .footer-right a:hover{color:var(--white)}
+  .footer-meta{margin-top:20px;display:flex;gap:20px;justify-content:flex-end;font-size:.8rem}
+  .privacy-note{font-size:.75rem;color:var(--stone-400);text-align:center;margin-top:32px;max-width:480px;margin-left:auto;margin-right:auto}
+  /* ANIMATIONS */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  .hero .label,.hero h1,.hero p,.hero-btns,.trust-row{animation:fadeUp .6s ease-out both}
+  .hero h1{animation-delay:.08s}.hero p{animation-delay:.16s}.hero-btns{animation-delay:.24s}.trust-row{animation-delay:.32s}
+  /* MOBILE */
+  @media(max-width:768px){
+    section{padding:60px 0}.hero{padding:48px 0 40px}
+    .hero-btns{flex-direction:column}.hero-btns .btn{width:100%;justify-content:center}
+    .trust-row{flex-direction:column;gap:10px}
+    .card-grid{grid-template-columns:1fr}.step-grid{grid-template-columns:1fr;gap:36px}
+    .audit-grid{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr}
+    .addon-grid{grid-template-columns:1fr 1fr}
+    .footer-grid{flex-direction:column;gap:24px;text-align:center;align-items:center}
+    .footer-right{text-align:center}.footer-meta{justify-content:center}
+  }
+  @media(max-width:420px){.addon-grid{grid-template-columns:1fr}}
+  /* FORCE LIGHT */
+  @media(prefers-color-scheme:dark){
+    html,body{background-color:#fafaf9!important;color:#292524!important}
+    nav{background:rgba(250,250,249,.92)!important;border-bottom-color:#e7e5e4!important}
+    .services-bg,.pricing-bg{background-color:#fff!important}
+    .audit-section{background-color:#1c1917!important}footer{background-color:#1c1917!important}
+    .service-card,.addon-card,.stacks-card{background-color:#fafaf9!important}
+    .base-card{background-color:#fff!important;border-color:#1c1917!important}
+    .hero h1,.section-title,.service-card h3,.base-card h3,.stacks-card h3,.addon-card h4,.step h3,.nav-logo,.base-price,.stack-name,.closing-cta h2{color:#1c1917!important}
+    .hero p,.section-sub,.service-card p.desc,.step p,.base-desc,.addon-card p.desc,.trust-item,.base-price span,.base-features li,.stack-channels,.pricing-footer,.closing-cta p,.addon-note{color:#57534e!important}
+    .label,.service-price,.service-num,.addon-price,.stack-price{color:#0f766e!important}
+    .btn-primary,.nav-cta,.base-badge{background-color:#1c1917!important;color:#fff!important}
+    .btn-secondary{color:#292524!important;border-color:#d6d3d1!important}
+    .btn-white{background-color:#fff!important;color:#1c1917!important}
+    .audit-section .label{color:#f59e0b!important}.audit-section .section-title{color:#fff!important}
+    .audit-left-sub{color:#a8a29e!important}.checklist li{color:#d6d3d1!important}
+    .audit-form input,.audit-form textarea{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.15)!important;color:#fff!important}
+    .footer-name{color:#fff!important}footer p,footer a,.footer-right a{color:#a8a29e!important}
+    #audit-success h3{color:#fff!important}#audit-success p{color:#d6d3d1!important}
+  }
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="#" class="nav-logo">Jon Holland Digital</a><a href="#audit" class="btn nav-cta">Free Google Audit</a></div></nav>
+
+<section class="hero"><div class="container">
+  <span class="label">San Antonio Small Business Marketing</span>
+  <h1>Your business should show up when people search for it.</h1>
+  <p>I help San Antonio service businesses get found on Google, look professional, and stay in front of their neighborhood — without the agency price tag.</p>
+  <div class="hero-btns">
+    <a href="#audit" class="btn btn-pill btn-primary">Get Your Free Audit</a>
+    <a href="#services" class="btn btn-secondary">See What I Do</a>
+  </div>
+  <div class="trust-row">
+    <span class="trust-item"><span class="trust-dot"></span> No long-term contracts</span>
+    <span class="trust-item"><span class="trust-dot"></span> Based in San Antonio</span>
+    <span class="trust-item"><span class="trust-dot"></span> First deliverable in 48 hours</span>
+  </div>
+</div></section>
+
+<section class="services-bg" id="services"><div class="container">
+  <span class="label">What I Do</span>
+  <h2 class="section-title">Everything a local service business needs to look legit and get found.</h2>
+  <p class="section-sub">No long-term contracts. No jargon. Just the stuff that actually drives calls.</p>
+  <div class="card-grid">
+    <div class="service-card"><span class="service-num">01</span><h3>Google Business Profile</h3><p class="service-price">From $150 one-time</p><p class="desc">Full setup or overhaul so you actually show up on Google Maps when someone searches for what you do in your area.</p></div>
+    <div class="service-card"><span class="service-num">02</span><h3>Print &amp; Direct Mail</h3><p class="service-price">From $75 one-time</p><p class="desc">Business cards, postcards, door hangers, and targeted mailers — design included, competitive pricing, and faster than retail print shops.</p></div>
+    <div class="service-card"><span class="service-num">03</span><h3>Business Documents</h3><p class="service-price">From $100 one-time</p><p class="desc">Professional proposals, service agreements, invoices, and brochures — branded to your business so you stop sending plain-text emails.</p></div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <span class="label">How It Works</span>
+  <h2 class="section-title">You've got a business to run. I'll keep this simple.</h2>
+  <p class="section-sub">Most of my clients start with the free audit. Here's what happens after that.</p>
+  <div class="step-grid">
+    <div class="step"><span class="step-watermark">01</span><div class="step-content"><h3>You request an audit</h3><p>Send me your business name. I pull up your Google listing and score it across 33 points. Takes me 10 minutes, saves you hours.</p></div></div>
+    <div class="step"><span class="step-watermark">02</span><div class="step-content"><h3>We talk about what I found</h3><p>Quick text or email. I'll tell you the 3 things hurting you most and what I'd do about them. No pressure, no pitch deck.</p></div></div>
+    <div class="step"><span class="step-watermark">03</span><div class="step-content"><h3>I send a one-page proposal</h3><p>Clear scope. Clear price. Clear timeline. If it makes sense for you, I start that week. If not, no hard feelings.</p></div></div>
+    <div class="step"><span class="step-watermark">04</span><div class="step-content"><h3>First results in 48 hours</h3><p>I don't make you wait weeks to see something. You'll have a tangible improvement within two days of saying yes.</p></div></div>
+  </div>
+</div></section>
+
+<section class="audit-section" id="audit"><div class="container"><div class="audit-grid">
+  <div>
+    <span class="label">Free — No Strings</span>
+    <h2 class="section-title">Get a Google Business Profile audit in 24 hours.</h2>
+    <p class="audit-left-sub">I'll pull up your listing and score it on 33 points across five categories. You'll know exactly what's helping you, what's hurting you, and what to fix first.</p>
+    <ul class="checklist">
+      <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 4L12 14.01l-3-3"/></svg> Profile completeness — are you missing fields that cost you visibility?</li>
+      <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 4L12 14.01l-3-3"/></svg> Visual content — photos, logo, cover image</li>
+      <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 4L12 14.01l-3-3"/></svg> Review health — total count, rating, response rate</li>
+      <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 4L12 14.01l-3-3"/></svg> Activity — posts, updates, engagement signals</li>
+      <li><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 4L12 14.01l-3-3"/></svg> NAP consistency — does your info match across platforms?</li>
+    </ul>
+    <p style="color:var(--stone-400);font-size:.88rem;margin-top:20px">Plus 3 quick wins you can fix yourself today — no purchase necessary.</p>
+  </div>
+  <div>
+    <div class="audit-form-wrap" id="audit-form"><div class="audit-form">
+      <input type="text" name="business" placeholder="Your business name" required>
+      <input type="text" name="location" placeholder="City or neighborhood (e.g. Stone Oak, SA)">
+      <input type="email" name="email" placeholder="Best email to send the audit to" required>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <textarea name="notes" placeholder="Anything specific you're wondering about? (optional)" rows="3"></textarea>
+      <button type="button" class="btn btn-white" onclick="submitAudit()">Request Your Free Audit</button>
+      <p class="audit-form-note">I'll personally review your listing and send the report within 24 hours.</p>
+      <p class="audit-form-note">Or email me directly: <a href="/cdn-cgi/l/email-protection#d3b9bcbdf5f0e5e7e8b9bcbdbbbcbfbfb2bdb7b7bab4baa7b2bffdb0bcbe" style="color:var(--stone-300);text-decoration:underline"><span class="__cf_email__" data-cfemail="c1abaeaf81abaeafa9aeadada0afa5a5a8a6a8b5a0adefa2aeac">[email&#160;protected]</span></a></p>
+    </div></div>
+    <div id="audit-success"><h3>Got it! I'll get started on your audit.</h3><p>I'll personally review your Google listing and send you the full report within 24 hours. Keep an eye on your inbox.</p></div>
+  </div>
+</div></div></section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function submitAudit(){
+  var f=document.getElementById('audit-form'),b=f.querySelector('button'),d={};
+  f.querySelectorAll('input,textarea').forEach(function(e){if(e.name&&e.name!=='_gotcha')d[e.name]=e.value});
+  if(f.querySelector('input[name="_gotcha"]').value)return;
+  if(!d.business||!d.email){b.textContent='Please fill in business name and email';setTimeout(function(){b.textContent='Request Your Free Audit'},2500);return}
+  b.textContent='Sending...';b.disabled=true;
+  fetch('https://formspree.io/f/mbdzenzj',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+  .then(function(r){if(r.ok){f.style.display='none';document.getElementById('audit-success').style.display='block'}else if(r.status===404){b.textContent='Form not configured yet \u2014 email me instead';b.disabled=false}else{b.textContent='Something went wrong \u2014 try again';b.disabled=false}})
+  .catch(function(){b.textContent='Something went wrong \u2014 try again';b.disabled=false})
+}
+</script>
+
+<section class="pricing-bg" id="monthly"><div class="container">
+  <span class="label">Monthly Plans</span>
+  <h2 class="section-title">Pick your base. Add what you need.</h2>
+  <p class="section-sub">Start with one channel, stack more as you grow. No lock-in contracts — just month-to-month.</p>
+  <div class="pricing-grid">
+    <div class="base-card">
+      <div class="base-badge">Start Here</div>
+      <h3>Your Base</h3>
+      <div class="base-price">$300 <span>/month</span></div>
+      <p class="base-desc">One marketing channel plus account management — check-ins, reporting, and documents so the work actually stays organized.</p>
+      <ul class="base-features">
+        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 4L12 14.01l-3-3"/></svg> Choose: Google, direct mail, or social</li>
+        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 4L12 14.01l-3-3"/></svg> Weekly check-in via text</li>
+        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 4L12 14.01l-3-3"/></svg> Monthly summary report</li>
+        <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 4L12 14.01l-3-3"/></svg> Up to 2 business documents/month</li>
+      </ul>
+    </div>
+    <div class="stacks-card">
+      <h3>How it stacks</h3>
+      <div class="stack-item"><p class="stack-name">The Steady Build</p><p class="stack-channels">Google + direct mail</p><p class="stack-pitch">Show up on Maps and hit a new neighborhood every month.</p><p class="stack-price">$450–500/mo</p></div>
+      <div class="stack-item"><p class="stack-name">Full Visibility</p><p class="stack-channels">Google + mail + social</p><p class="stack-pitch">Everywhere your customers look, you're there.</p><p class="stack-price">$600–700/mo</p></div>
+      <div class="stack-item"><p class="stack-name">The Engine</p><p class="stack-channels">Google + mail + social + email</p><p class="stack-pitch">You do the work. I bring in the work.</p><p class="stack-price">$750–900/mo</p></div>
+    </div>
+  </div>
+  <span class="label" style="margin-top:48px">Add Channels</span>
+  <p class="addon-note">Your base covers account management. These are just the additional channel work on top.</p>
+  <div class="addon-grid">
+    <div class="addon-card"><h4>Google Business</h4><p class="addon-price">+$150/mo</p><p class="desc">Posts, review responses, photos, monthly report.</p></div>
+    <div class="addon-card"><h4>Direct Mail</h4><p class="addon-price">+$200/mo</p><p class="desc">One targeted mailer/month — design, print, delivery.</p></div>
+    <div class="addon-card"><h4>Social Media</h4><p class="addon-price">+$175/mo</p><p class="desc">3–4 posts/week, content created and scheduled.</p></div>
+    <div class="addon-card"><h4>Email Campaigns</h4><p class="addon-price">+$150/mo</p><p class="desc">One campaign/month — written, designed, sent.</p></div>
+  </div>
+  <p class="pricing-footer">All plans are month-to-month. No commitments. Cancel anytime.</p>
+</div></section>
+
+<section class="closing-cta"><div class="container">
+  <h2>Not sure where to start?</h2>
+  <p>The free audit takes me 10 minutes and tells you exactly what to fix first. No strings, no pitch.</p>
+  <a href="#audit" class="btn btn-pill btn-primary">Get Your Free Audit</a>
+</div></section>
+
+<footer><div class="container">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-name">Jon Holland Digital</div>
+      <p>Helping San Antonio service businesses look legit and get found.</p>
+    </div>
+    <div class="footer-right">
+      <p style="color:var(--white);margin-bottom:4px">San Antonio, TX</p>
+      <a href="/cdn-cgi/l/email-protection#dfb5b0b1f9fce9ebe4b5b0b1b7b0b3b3beb1bbbbb6b8b6abbeb3f1bcb0b2
