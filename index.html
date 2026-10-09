@@ -41,11 +41,13 @@
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Fonts (self-hosted, SIL OFL 1.1; see /fonts) -->
+<link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/dm-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'DM Sans';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/dm-sans-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:600 800;font-display:swap;src:url(/fonts/fraunces-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
   :root {
     --stone-50:#fafaf9;--stone-200:#e7e5e4;--stone-300:#d6d3d1;--stone-400:#a8a29e;
     --stone-600:#57534e;--stone-800:#292524;--stone-900:#1c1917;--amber-500:#f59e0b;
@@ -97,6 +99,8 @@
   .service-card h3{font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--stone-900)}
   .service-price{font-weight:700;font-size:.88rem;color:var(--teal-700)}
   .service-card p.desc{font-size:.92rem;color:var(--stone-600);line-height:1.6}
+  .services-more{margin-top:24px;font-size:.92rem;color:var(--stone-600)}
+  .services-more a{color:var(--teal-700);font-weight:600}
   /* STEPS */
   .step-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px 56px}
   .step{position:relative;padding-left:12px}
@@ -104,6 +108,12 @@
   .step-content{position:relative;z-index:1}
   .step h3{font-weight:700;font-size:1.05rem;color:var(--stone-900);margin-bottom:6px}
   .step p{font-size:.92rem;color:var(--stone-600);line-height:1.6}
+  /* ABOUT */
+  .about-bg{background:var(--white)}
+  .about-card{max-width:720px;border-left:3px solid var(--teal-700);padding:4px 0 4px 24px}
+  .about-card p{font-size:1.05rem;color:var(--stone-600);line-height:1.7;margin-bottom:14px}
+  .about-card p:last-child{margin-bottom:0}
+  .about-card strong{color:var(--stone-900)}
   /* AUDIT SECTION */
   .audit-section{background:var(--stone-900);color:var(--white);position:relative;overflow:hidden}
   .audit-section::before{content:'';position:absolute;top:-40%;right:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(15,118,110,.12) 0%,transparent 70%);pointer-events:none}
@@ -120,6 +130,10 @@
   .audit-form input::placeholder,.audit-form textarea::placeholder{color:var(--stone-400)}
   .audit-form input:focus,.audit-form textarea:focus{border-color:rgba(255,255,255,.35)}
   .audit-form textarea{resize:vertical;min-height:56px}
+  .audit-form .field{display:flex;flex-direction:column;gap:6px}
+  .audit-form label{font-size:.85rem;font-weight:600;color:var(--stone-300)}
+  .audit-form label .opt{font-weight:400;color:var(--stone-400)}
+  .audit-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .audit-form-note{font-size:.78rem;color:var(--stone-400);text-align:center;margin-top:6px}
   .audit-form-note a{color:var(--stone-300);text-decoration:underline}
   #audit-success{display:none;text-align:center;padding:40px 20px}
@@ -143,7 +157,7 @@
   .stack-item:last-child{border-bottom:none}
   .stack-name{font-weight:700;font-size:.95rem;color:var(--stone-900);margin-bottom:2px}
   .stack-channels{font-size:.84rem;color:var(--stone-600);margin-bottom:2px}
-  .stack-pitch{font-size:.8rem;color:var(--stone-400);font-style:italic}
+  .stack-pitch{font-size:.8rem;color:var(--stone-600);font-style:italic}
   .stack-price{font-weight:700;font-size:1.05rem;color:var(--teal-700);margin-top:4px}
   .addon-note{font-size:.84rem;color:var(--stone-600);margin-top:-4px;margin-bottom:18px}
   .addon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -152,6 +166,11 @@
   .addon-price{font-weight:700;color:var(--teal-700);font-size:.95rem;margin-bottom:6px}
   .addon-card p.desc{font-size:.8rem;color:var(--stone-600);line-height:1.5}
   .pricing-footer{text-align:center;font-size:.88rem;color:var(--stone-600);margin-top:36px}
+  .kit-band{margin-top:48px;border:1px solid var(--stone-200);border-radius:14px;padding:28px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--stone-50)}
+  .kit-band h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--stone-900);margin-bottom:6px}
+  .kit-band p{font-size:.92rem;color:var(--stone-600);line-height:1.6;max-width:600px}
+  .kit-band .kit-small{font-size:.8rem;margin-top:6px}
+  .kit-band .btn-secondary{flex-shrink:0}
   /* FAQ */
   .faq-bg{background:var(--stone-50)}
   .faq-list{display:flex;flex-direction:column;gap:16px;max-width:780px}
@@ -182,6 +201,12 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
   .hero .label,.hero h1,.hero p,.hero-btns,.trust-row,.hero-phone{animation:fadeUp .6s ease-out both}
   .hero h1{animation-delay:.08s}.hero p{animation-delay:.16s}.hero-btns{animation-delay:.24s}.trust-row{animation-delay:.32s}.hero-phone{animation-delay:.4s}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .hero .label,.hero h1,.hero p,.hero-btns,.trust-row,.hero-phone{animation:none}
+    .btn,.service-card,.faq-item summary::after{transition:none}
+    .btn-primary:hover{transform:none}
+  }
   /* MOBILE */
   @media(max-width:768px){
     section{padding:60px 0}.hero{padding:48px 0 40px}
@@ -199,15 +224,15 @@
   @media(prefers-color-scheme:dark){
     html,body{background-color:#fafaf9!important;color:#292524!important}
     nav{background:rgba(250,250,249,.92)!important;border-bottom-color:#e7e5e4!important}
-    .services-bg,.pricing-bg{background-color:#fff!important}
+    .services-bg,.pricing-bg,.about-bg{background-color:#fff!important}
     .faq-bg{background-color:#fafaf9!important}
     .faq-item{background-color:#fff!important}
     .faq-item summary{color:#1c1917!important}.faq-item p{color:#57534e!important}
     .audit-section{background-color:#1c1917!important}footer{background-color:#1c1917!important}
-    .service-card,.addon-card,.stacks-card{background-color:#fafaf9!important}
+    .service-card,.addon-card,.stacks-card,.kit-band{background-color:#fafaf9!important}
     .base-card{background-color:#fff!important;border-color:#1c1917!important}
-    .hero h1,.section-title,.service-card h3,.base-card h3,.stacks-card h3,.addon-card h4,.step h3,.nav-logo,.base-price,.stack-name,.closing-cta h2{color:#1c1917!important}
-    .hero p,.section-sub,.service-card p.desc,.step p,.base-desc,.addon-card p.desc,.trust-item,.base-price span,.base-features li,.stack-channels,.pricing-footer,.closing-cta p,.addon-note,.hero-phone,.closing-cta-phone,.closing-cta-hours{color:#57534e!important}
+    .kit-band h3,.hero h1,.section-title,.service-card h3,.base-card h3,.stacks-card h3,.addon-card h4,.step h3,.nav-logo,.base-price,.stack-name,.closing-cta h2{color:#1c1917!important}
+    .hero p,.section-sub,.service-card p.desc,.step p,.base-desc,.addon-card p.desc,.trust-item,.base-price span,.base-features li,.stack-channels,.pricing-footer,.kit-band p,.closing-cta p,.addon-note,.hero-phone,.closing-cta-phone,.closing-cta-hours{color:#57534e!important}
     .nav-phone{color:#292524!important}.hero-phone a,.closing-cta-phone a{color:#1c1917!important}
     .label,.service-price,.service-num,.addon-price,.stack-price{color:#0f766e!important}
     .btn-primary,.nav-cta,.base-badge{background-color:#1c1917!important;color:#fff!important}
@@ -224,18 +249,19 @@
 <body>
 <nav><div class="nav-inner"><a href="#" class="nav-logo">Jon Holland Digital</a><div class="nav-right"><a href="mailto:jon&#64;jonhollanddigital.com" class="nav-phone" aria-label="Email Jon Holland Digital">jon@jonhollanddigital.com</a><a href="tel:+12102519611" class="nav-phone" aria-label="Call Jon Holland Digital">(210) 251-9611</a><a href="#audit" class="btn nav-cta">Free Google Audit</a></div></div></nav>
 
+<main id="main">
 <section class="hero"><div class="container">
-  <span class="label">San Antonio Small Business Marketing</span>
-  <h1>Your business should show up when people search for it.</h1>
-  <p>I help San Antonio service businesses get found on Google, look professional, and stay in front of their neighborhood &mdash; without the agency price tag.</p>
+  <span class="label">Google Business Profile help for San Antonio service businesses</span>
+  <h1>Get your Google listing working for you, without agency prices.</h1>
+  <p>I'm Jon, a one-person marketing shop in San Antonio. I fix and manage Google Business Profiles for local service businesses, and I can handle your postcards and paperwork too.</p>
   <div class="hero-btns">
     <a href="#audit" class="btn btn-pill btn-primary">Get Your Free Audit</a>
     <a href="#services" class="btn btn-secondary">See What I Do</a>
   </div>
   <div class="trust-row">
-    <span class="trust-item"><span class="trust-dot"></span> No long-term contracts</span>
-    <span class="trust-item"><span class="trust-dot"></span> Based in San Antonio</span>
-    <span class="trust-item"><span class="trust-dot"></span> First deliverable within a few business days</span>
+    <span class="trust-item"><span class="trust-dot"></span> Prices listed on this page</span>
+    <span class="trust-item"><span class="trust-dot"></span> Month-to-month, cancel anytime</span>
+    <span class="trust-item"><span class="trust-dot"></span> Free audit emailed in 1 to 2 business days</span>
   </div>
   <p class="hero-phone">Email: <a href="mailto:jon&#64;jonhollanddigital.com">jon@jonhollanddigital.com</a> &middot; Call or text: <a href="tel:+12102519611">(210) 251-9611</a></p>
 </div></section>
@@ -246,9 +272,10 @@
   <p class="section-sub">No long-term contracts. No jargon. Just the stuff that actually drives calls.</p>
   <div class="card-grid">
     <div class="service-card"><span class="service-num">01</span><h3>Google Business Profile</h3><p class="service-price">From $150 one-time</p><p class="desc">Full setup or overhaul so you actually show up on Google Maps when someone searches for what you do in your area.</p></div>
-    <div class="service-card"><span class="service-num">02</span><h3>Print &amp; Direct Mail</h3><p class="service-price">From $75 one-time</p><p class="desc">Business cards, postcards, door hangers, and targeted mailers &mdash; design included, competitive pricing, and faster than retail print shops.</p></div>
+    <div class="service-card"><span class="service-num">02</span><h3>Print &amp; Direct Mail</h3><p class="service-price">From $75 one-time</p><p class="desc">Business cards, postcards, door hangers, and targeted mailers &mdash; design included. I'll quote the print cost upfront so you can compare.</p></div>
     <div class="service-card"><span class="service-num">03</span><h3>Business Documents</h3><p class="service-price">From $100 one-time</p><p class="desc">Professional proposals, service agreements, invoices, and brochures &mdash; branded to your business so you stop sending plain-text emails.</p></div>
   </div>
+  <p class="services-more">Also available monthly: social posts and email campaigns. <a href="#monthly">See monthly plans</a></p>
 </div></section>
 
 <section><div class="container">
@@ -256,10 +283,20 @@
   <h2 class="section-title">You've got a business to run. I'll keep this simple.</h2>
   <p class="section-sub">Most of my clients start with the free audit. Here's what happens after that.</p>
   <div class="step-grid">
-    <div class="step"><span class="step-watermark" aria-hidden="true">01</span><div class="step-content"><h3>You request an audit</h3><p>Send me your business name. I pull up your Google listing and score it across 33 points. Takes me 10 minutes, saves you hours.</p></div></div>
+    <div class="step"><span class="step-watermark" aria-hidden="true">01</span><div class="step-content"><h3>You request an audit</h3><p>Send me your business name. I score your Google listing across 33 points. I go through your listing by hand and email you a written report within 1 to 2 business days.</p></div></div>
     <div class="step"><span class="step-watermark" aria-hidden="true">02</span><div class="step-content"><h3>We talk about what I found</h3><p>Quick text or email. I'll tell you the 3 things hurting you most and what I'd do about them. No pressure, no pitch deck.</p></div></div>
     <div class="step"><span class="step-watermark" aria-hidden="true">03</span><div class="step-content"><h3>I send a one-page proposal</h3><p>Clear scope. Clear price. Clear timeline. If it makes sense for you, I start that week. If not, no hard feelings.</p></div></div>
     <div class="step"><span class="step-watermark" aria-hidden="true">04</span><div class="step-content"><h3>First results within a few business days</h3><p>I don't make you wait weeks to see something. You'll see a tangible improvement within a few business days of saying yes.</p></div></div>
+  </div>
+</div></section>
+
+<section class="about-bg" id="about" aria-labelledby="about-title"><div class="container">
+  <span class="label">About</span>
+  <h2 class="section-title" id="about-title">Who you'll work with</h2>
+  <div class="about-card">
+    <!-- Photo of Jon and 1-2 background sentences go here once Jon provides/approves them (site plan #2). -->
+    <p>Hi, I'm <strong>Jon Holland</strong>. I live in San Antonio and work directly with every client. No account managers, no hand-offs.</p>
+    <p>I work by appointment. I reply to email within 1 to 2 business days, and I take calls Tue &amp; Thu 6&ndash;7pm and Sat 10am&ndash;12pm CT.</p>
   </div>
 </div></section>
 
@@ -278,30 +315,35 @@
     <p style="color:var(--stone-400);font-size:.88rem;margin-top:20px">Plus 3 quick wins you can fix yourself today &mdash; no purchase necessary.</p>
   </div>
   <div>
-    <div class="audit-form-wrap" id="audit-form"><div class="audit-form">
-      <input type="text" name="business" placeholder="Your business name" required>
-      <input type="text" name="location" placeholder="City or neighborhood (e.g. Stone Oak, SA)">
-      <input type="email" name="email" placeholder="Best email to send the audit to" required>
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-      <textarea name="notes" placeholder="Anything specific you're wondering about? (optional)" rows="3"></textarea>
-      <button type="button" class="btn btn-white" onclick="submitAudit()">Request Your Free Audit</button>
+    <div class="audit-form-wrap" id="audit-form"><form class="audit-form" action="https://formspree.io/f/mbdzenzj" method="POST" onsubmit="return submitAudit(event)">
+      <div class="field"><label for="f-business">Business name</label><input type="text" id="f-business" name="business" autocomplete="organization" required></div>
+      <div class="field"><label for="f-location">Area you serve <span class="opt">(optional)</span></label><input type="text" id="f-location" name="location" placeholder="e.g. Stone Oak"></div>
+      <div class="field"><label for="f-email">Email for the report</label><input type="email" id="f-email" name="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-listing">Link to your Google listing <span class="opt">(optional)</span></label><input type="text" id="f-listing" name="listing" inputmode="url" placeholder="Paste a Google Maps link"></div>
+      <div class="hp" aria-hidden="true"><label for="f-gotcha">Leave this empty</label><input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+      <div class="field"><label for="f-notes">Anything specific? <span class="opt">(optional)</span></label><textarea id="f-notes" name="notes" rows="3"></textarea></div>
+      <button type="submit" class="btn btn-white">Request Your Free Audit</button>
+      <p class="audit-form-note">I'll use this only to send your audit and follow up about it. Form submissions are handled by Formspree. See my <a href="/privacy">privacy page</a>.</p>
       <p class="audit-form-note">I'll personally review your listing and email you the report within 1 to 2 business days.</p>
       <p class="audit-form-note">Or email: <a href="mailto:jon&#64;jonhollanddigital.com" style="color:var(--stone-300);text-decoration:underline">jon@jonhollanddigital.com</a> &middot; Call/text: <a href="tel:+12102519611" style="color:var(--stone-300);text-decoration:underline">(210) 251-9611</a></p>
-    </div></div>
+    </form></div>
     <div id="audit-success"><h3>Thanks! I got your request.</h3><p>I'll personally review your Google listing and email you within 1 to 2 business days.</p></div>
   </div>
 </div></div></section>
 
 <script>
-function submitAudit(){
+// Without JavaScript the <form> posts straight to Formspree; with it, we send JSON and show the inline thank-you.
+function submitAudit(ev){
+  if(ev)ev.preventDefault();
   var f=document.getElementById('audit-form'),b=f.querySelector('button'),d={};
   f.querySelectorAll('input,textarea').forEach(function(e){if(e.name&&e.name!=='_gotcha')d[e.name]=e.value});
-  if(f.querySelector('input[name="_gotcha"]').value)return;
-  if(!d.business||!d.email){b.textContent='Please fill in business name and email';setTimeout(function(){b.textContent='Request Your Free Audit'},2500);return}
+  if(f.querySelector('input[name="_gotcha"]').value)return false;
+  if(!d.business||!d.email){b.textContent='Please fill in business name and email';setTimeout(function(){b.textContent='Request Your Free Audit'},2500);return false}
   b.textContent='Sending...';b.disabled=true;
-  fetch('https://formspree.io/f/mbdzenzj',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+  fetch('https://formspree.io/f/mbdzenzj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
   .then(function(r){if(r.ok){f.style.display='none';document.getElementById('audit-success').style.display='block'}else if(r.status===404){b.textContent='Form not configured yet \u2014 email me instead';b.disabled=false}else{b.textContent='Something went wrong \u2014 try again';b.disabled=false}})
-  .catch(function(){b.textContent='Something went wrong \u2014 try again';b.disabled=false})
+  .catch(function(){b.textContent='Something went wrong \u2014 try again';b.disabled=false});
+  return false;
 }
 </script>
 
@@ -338,6 +380,14 @@ function submitAudit(){
     <div class="addon-card"><h4>Email Campaigns</h4><p class="addon-price">+$150/mo</p><p class="desc">One campaign/month &mdash; written, designed, sent.</p></div>
   </div>
   <p class="pricing-footer">All plans are month-to-month. No commitments. Cancel anytime.</p>
+  <div class="kit-band" id="kit">
+    <div>
+      <h3>Rather do it yourself?</h3>
+      <p>My $29 Local Service Business Marketing Kit gives you checklists, scripts, and templates for your Google profile, reviews, and mailers. Plain English, about two weeks of work.</p>
+      <p class="kit-small">14-day money-back guarantee through Gumroad. Want a second opinion first? The free audit is still free.</p>
+    </div>
+    <a href="https://brandstrategist15.gumroad.com/l/local-service-marketing-kit" class="btn btn-secondary" target="_blank" rel="noopener">Get the $29 kit</a>
+  </div>
 </div></section>
 
 <section class="faq-bg" id="faq"><div class="container">
@@ -345,10 +395,10 @@ function submitAudit(){
   <h2 class="section-title">Questions I get asked a lot.</h2>
   <p class="section-sub">The short, honest answers.</p>
   <div class="faq-list">
-    <details class="faq-item"><summary>How much does Google Business Profile management cost in San Antonio?</summary><p>One-time setup starts at $150. Ongoing management is $150/month and includes Google Posts, review responses, photos, and a monthly report. Most San Antonio marketing agencies charge $300&ndash;$500/month for the same scope &mdash; and lock you into a contract. I don't.</p></details>
+    <details class="faq-item"><summary>How much does Google Business Profile management cost in San Antonio?</summary><p>One-time setup starts at $150. Ongoing management is $150/month and includes Google Posts, review responses, photos, and a monthly report. Every price is on this page, and every plan is month-to-month. If I'm not earning my keep, you can cancel.</p></details>
     <details class="faq-item"><summary>Do you have long-term contracts?</summary><p>No. Every plan is month-to-month. Cancel whenever you want. If I'm not earning my keep, you shouldn't keep paying me.</p></details>
     <details class="faq-item"><summary>What's included in the free audit?</summary><p>I pull up your Google Business Profile and score it across 33 points in five categories: profile completeness, visual content, review health, activity, and NAP consistency. You get a written report and 3 quick wins you can fix yourself &mdash; no purchase required.</p></details>
-    <details class="faq-item"><summary>How fast can I see results?</summary><p>First tangible deliverable within a few business days of saying yes. Google Business Profile changes start showing up in Maps results within a few days. Direct mail lands in mailboxes within 2&ndash;3 weeks depending on volume and USPS cycle.</p></details>
+    <details class="faq-item"><summary>How fast can I see results?</summary><p>First tangible deliverable within a few business days of saying yes. Profile fixes go live as soon as Google accepts them. Ranking changes usually take a few weeks to a few months, depending on your competition. Nobody can promise a #1 spot, and I won't. Direct mail lands in mailboxes within 2&ndash;3 weeks depending on volume and USPS cycle.</p></details>
     <details class="faq-item"><summary>Do you serve areas outside San Antonio?</summary><p>I'm based in San Antonio and know the local market best &mdash; including Alamo Heights, Stone Oak, Boerne, New Braunfels, and the surrounding Hill Country. I'll take clients anywhere in Texas if the fit is right.</p></details>
     <details class="faq-item"><summary>What makes you different from other San Antonio marketing agencies?</summary><p>Three things: transparent pricing (every number is on this page), trade-level direct mail pricing through my print partners, and a one-person operation &mdash; you work with me, not an account manager handing you off to a contractor.</p></details>
     <details class="faq-item"><summary>Can I get just one service, or do I have to bundle?</summary><p>Either works. One-time services start at $75. Google Business Profile management on its own is $150/month. Bundled monthly plans start at $300 with one channel plus account management and scale up as you add more. Pick what makes sense for your business right now.</p></details>
@@ -357,11 +407,12 @@ function submitAudit(){
 
 <section class="closing-cta"><div class="container">
   <h2>Not sure where to start?</h2>
-  <p>The free audit takes me 10 minutes and tells you exactly what to fix first. No strings, no pitch.</p>
+  <p>Start with the free audit. I go through your listing by hand and email you a written report within 1 to 2 business days. No strings, no pitch.</p>
   <a href="#audit" class="btn btn-pill btn-primary">Get Your Free Audit</a>
   <p class="closing-cta-phone">Or email: <a href="mailto:jon&#64;jonhollanddigital.com">jon@jonhollanddigital.com</a> &middot; Call/text: <a href="tel:+12102519611">(210) 251-9611</a></p>
   <p class="closing-cta-hours">By appointment &middot; Email replies within 1 to 2 business days &middot; Call windows: Tue &amp; Thu 6&ndash;7pm, Sat 10am&ndash;12pm CT</p>
 </div></section>
+</main>
 
 <footer><div class="container">
   <div class="footer-grid">
@@ -375,10 +426,10 @@ function submitAudit(){
       <p style="margin-bottom:4px"><a href="mailto:jon&#64;jonhollanddigital.com">jon@jonhollanddigital.com</a></p>
       <a href="tel:+12102519611">(210) 251-9611</a>
       <p class="footer-hours">By appointment &middot; Email replies within 1 to 2 business days &middot; Call windows: Tue &amp; Thu 6&ndash;7pm, Sat 10am&ndash;12pm CT</p>
-      <div class="footer-meta"><span>&copy; 2026 Jon Holland Digital</span></div>
+      <div class="footer-meta"><span>&copy; 2026 Jon Holland Digital</span><a href="/privacy">Privacy</a></div>
     </div>
   </div>
-  <p class="privacy-note">Your information is used only to deliver your audit and communicate about services. I don't share, sell, or spam.</p>
+  <p class="privacy-note">Your information is used only to deliver your audit and communicate about services. I don't share, sell, or spam. Form submissions are handled by Formspree. <a href="/privacy" style="color:var(--stone-300)">Privacy page</a></p>
 </div></footer>
 
 <!-- JSON-LD: LocalBusiness / ProfessionalService -->
@@ -404,15 +455,10 @@ function submitAudit(){
     "addressRegion": "TX",
     "addressCountry": "US"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 29.4241,
-    "longitude": -98.4936
-  },
   "areaServed": [
     {"@type": "City", "name": "San Antonio", "containedInPlace": {"@type": "State", "name": "Texas"}},
     {"@type": "City", "name": "Alamo Heights"},
-    {"@type": "City", "name": "Stone Oak"},
+    {"@type": "Place", "name": "Stone Oak, San Antonio, TX"},
     {"@type": "City", "name": "Boerne"},
     {"@type": "City", "name": "New Braunfels"}
   ],
@@ -491,7 +537,7 @@ function submitAudit(){
     {
       "@type": "Question",
       "name": "How much does Google Business Profile management cost in San Antonio?",
-      "acceptedAnswer": {"@type": "Answer", "text": "One-time setup starts at $150. Ongoing management is $150/month and includes Google Posts, review responses, photos, and a monthly report. Most San Antonio marketing agencies charge $300-$500/month for the same scope and lock you into a contract. I don't."}
+      "acceptedAnswer": {"@type": "Answer", "text": "One-time setup starts at $150. Ongoing management is $150/month and includes Google Posts, review responses, photos, and a monthly report. Every price is on this page, and every plan is month-to-month. If I'm not earning my keep, you can cancel."}
     },
     {
       "@type": "Question",
@@ -506,7 +552,7 @@ function submitAudit(){
     {
       "@type": "Question",
       "name": "How fast can I see results?",
-      "acceptedAnswer": {"@type": "Answer", "text": "First tangible deliverable within a few business days of saying yes. Google Business Profile changes start showing up in Maps results within a few days. Direct mail lands in mailboxes within 2-3 weeks depending on volume and USPS cycle."}
+      "acceptedAnswer": {"@type": "Answer", "text": "First tangible deliverable within a few business days of saying yes. Profile fixes go live as soon as Google accepts them. Ranking changes usually take a few weeks to a few months, depending on your competition. Nobody can promise a #1 spot, and I won't. Direct mail lands in mailboxes within 2-3 weeks depending on volume and USPS cycle."}
     },
     {
       "@type": "Question",
