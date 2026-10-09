@@ -130,6 +130,10 @@
   .audit-form input::placeholder,.audit-form textarea::placeholder{color:var(--stone-400)}
   .audit-form input:focus,.audit-form textarea:focus{border-color:rgba(255,255,255,.35)}
   .audit-form textarea{resize:vertical;min-height:56px}
+  .audit-form .field{display:flex;flex-direction:column;gap:6px}
+  .audit-form label{font-size:.85rem;font-weight:600;color:var(--stone-300)}
+  .audit-form label .opt{font-weight:400;color:var(--stone-400)}
+  .audit-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .audit-form-note{font-size:.78rem;color:var(--stone-400);text-align:center;margin-top:6px}
   .audit-form-note a{color:var(--stone-300);text-decoration:underline}
   #audit-success{display:none;text-align:center;padding:40px 20px}
@@ -311,30 +315,35 @@
     <p style="color:var(--stone-400);font-size:.88rem;margin-top:20px">Plus 3 quick wins you can fix yourself today &mdash; no purchase necessary.</p>
   </div>
   <div>
-    <div class="audit-form-wrap" id="audit-form"><div class="audit-form">
-      <input type="text" name="business" placeholder="Your business name" required>
-      <input type="text" name="location" placeholder="City or neighborhood (e.g. Stone Oak, SA)">
-      <input type="email" name="email" placeholder="Best email to send the audit to" required>
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-      <textarea name="notes" placeholder="Anything specific you're wondering about? (optional)" rows="3"></textarea>
-      <button type="button" class="btn btn-white" onclick="submitAudit()">Request Your Free Audit</button>
+    <div class="audit-form-wrap" id="audit-form"><form class="audit-form" action="https://formspree.io/f/mbdzenzj" method="POST" onsubmit="return submitAudit(event)">
+      <div class="field"><label for="f-business">Business name</label><input type="text" id="f-business" name="business" autocomplete="organization" required></div>
+      <div class="field"><label for="f-location">Area you serve <span class="opt">(optional)</span></label><input type="text" id="f-location" name="location" placeholder="e.g. Stone Oak"></div>
+      <div class="field"><label for="f-email">Email for the report</label><input type="email" id="f-email" name="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-listing">Link to your Google listing <span class="opt">(optional)</span></label><input type="text" id="f-listing" name="listing" inputmode="url" placeholder="Paste a Google Maps link"></div>
+      <div class="hp" aria-hidden="true"><label for="f-gotcha">Leave this empty</label><input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+      <div class="field"><label for="f-notes">Anything specific? <span class="opt">(optional)</span></label><textarea id="f-notes" name="notes" rows="3"></textarea></div>
+      <button type="submit" class="btn btn-white">Request Your Free Audit</button>
+      <p class="audit-form-note">I'll use this only to send your audit and follow up about it. Form submissions are handled by Formspree. See my <a href="/privacy">privacy page</a>.</p>
       <p class="audit-form-note">I'll personally review your listing and email you the report within 1 to 2 business days.</p>
       <p class="audit-form-note">Or email: <a href="mailto:jon&#64;jonhollanddigital.com" style="color:var(--stone-300);text-decoration:underline">jon@jonhollanddigital.com</a> &middot; Call/text: <a href="tel:+12102519611" style="color:var(--stone-300);text-decoration:underline">(210) 251-9611</a></p>
-    </div></div>
+    </form></div>
     <div id="audit-success"><h3>Thanks! I got your request.</h3><p>I'll personally review your Google listing and email you within 1 to 2 business days.</p></div>
   </div>
 </div></div></section>
 
 <script>
-function submitAudit(){
+// Without JavaScript the <form> posts straight to Formspree; with it, we send JSON and show the inline thank-you.
+function submitAudit(ev){
+  if(ev)ev.preventDefault();
   var f=document.getElementById('audit-form'),b=f.querySelector('button'),d={};
   f.querySelectorAll('input,textarea').forEach(function(e){if(e.name&&e.name!=='_gotcha')d[e.name]=e.value});
-  if(f.querySelector('input[name="_gotcha"]').value)return;
-  if(!d.business||!d.email){b.textContent='Please fill in business name and email';setTimeout(function(){b.textContent='Request Your Free Audit'},2500);return}
+  if(f.querySelector('input[name="_gotcha"]').value)return false;
+  if(!d.business||!d.email){b.textContent='Please fill in business name and email';setTimeout(function(){b.textContent='Request Your Free Audit'},2500);return false}
   b.textContent='Sending...';b.disabled=true;
-  fetch('https://formspree.io/f/mbdzenzj',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+  fetch('https://formspree.io/f/mbdzenzj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
   .then(function(r){if(r.ok){f.style.display='none';document.getElementById('audit-success').style.display='block'}else if(r.status===404){b.textContent='Form not configured yet \u2014 email me instead';b.disabled=false}else{b.textContent='Something went wrong \u2014 try again';b.disabled=false}})
-  .catch(function(){b.textContent='Something went wrong \u2014 try again';b.disabled=false})
+  .catch(function(){b.textContent='Something went wrong \u2014 try again';b.disabled=false});
+  return false;
 }
 </script>
 
@@ -417,10 +426,10 @@ function submitAudit(){
       <p style="margin-bottom:4px"><a href="mailto:jon&#64;jonhollanddigital.com">jon@jonhollanddigital.com</a></p>
       <a href="tel:+12102519611">(210) 251-9611</a>
       <p class="footer-hours">By appointment &middot; Email replies within 1 to 2 business days &middot; Call windows: Tue &amp; Thu 6&ndash;7pm, Sat 10am&ndash;12pm CT</p>
-      <div class="footer-meta"><span>&copy; 2026 Jon Holland Digital</span></div>
+      <div class="footer-meta"><span>&copy; 2026 Jon Holland Digital</span><a href="/privacy">Privacy</a></div>
     </div>
   </div>
-  <p class="privacy-note">Your information is used only to deliver your audit and communicate about services. I don't share, sell, or spam.</p>
+  <p class="privacy-note">Your information is used only to deliver your audit and communicate about services. I don't share, sell, or spam. Form submissions are handled by Formspree. <a href="/privacy" style="color:var(--stone-300)">Privacy page</a></p>
 </div></footer>
 
 <!-- JSON-LD: LocalBusiness / ProfessionalService -->
