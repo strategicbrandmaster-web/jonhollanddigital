@@ -41,11 +41,13 @@
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Fonts (self-hosted, SIL OFL 1.1; see /fonts) -->
+<link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/dm-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'DM Sans';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/dm-sans-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:600 800;font-display:swap;src:url(/fonts/fraunces-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
   :root {
     --stone-50:#fafaf9;--stone-200:#e7e5e4;--stone-300:#d6d3d1;--stone-400:#a8a29e;
     --stone-600:#57534e;--stone-800:#292524;--stone-900:#1c1917;--amber-500:#f59e0b;
@@ -143,7 +145,7 @@
   .stack-item:last-child{border-bottom:none}
   .stack-name{font-weight:700;font-size:.95rem;color:var(--stone-900);margin-bottom:2px}
   .stack-channels{font-size:.84rem;color:var(--stone-600);margin-bottom:2px}
-  .stack-pitch{font-size:.8rem;color:var(--stone-400);font-style:italic}
+  .stack-pitch{font-size:.8rem;color:var(--stone-600);font-style:italic}
   .stack-price{font-weight:700;font-size:1.05rem;color:var(--teal-700);margin-top:4px}
   .addon-note{font-size:.84rem;color:var(--stone-600);margin-top:-4px;margin-bottom:18px}
   .addon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -182,6 +184,12 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
   .hero .label,.hero h1,.hero p,.hero-btns,.trust-row,.hero-phone{animation:fadeUp .6s ease-out both}
   .hero h1{animation-delay:.08s}.hero p{animation-delay:.16s}.hero-btns{animation-delay:.24s}.trust-row{animation-delay:.32s}.hero-phone{animation-delay:.4s}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .hero .label,.hero h1,.hero p,.hero-btns,.trust-row,.hero-phone{animation:none}
+    .btn,.service-card,.faq-item summary::after{transition:none}
+    .btn-primary:hover{transform:none}
+  }
   /* MOBILE */
   @media(max-width:768px){
     section{padding:60px 0}.hero{padding:48px 0 40px}
@@ -224,6 +232,7 @@
 <body>
 <nav><div class="nav-inner"><a href="#" class="nav-logo">Jon Holland Digital</a><div class="nav-right"><a href="mailto:jon&#64;jonhollanddigital.com" class="nav-phone" aria-label="Email Jon Holland Digital">jon@jonhollanddigital.com</a><a href="tel:+12102519611" class="nav-phone" aria-label="Call Jon Holland Digital">(210) 251-9611</a><a href="#audit" class="btn nav-cta">Free Google Audit</a></div></div></nav>
 
+<main id="main">
 <section class="hero"><div class="container">
   <span class="label">San Antonio Small Business Marketing</span>
   <h1>Your business should show up when people search for it.</h1>
@@ -362,6 +371,7 @@ function submitAudit(){
   <p class="closing-cta-phone">Or email: <a href="mailto:jon&#64;jonhollanddigital.com">jon@jonhollanddigital.com</a> &middot; Call/text: <a href="tel:+12102519611">(210) 251-9611</a></p>
   <p class="closing-cta-hours">By appointment &middot; Email replies within 1 to 2 business days &middot; Call windows: Tue &amp; Thu 6&ndash;7pm, Sat 10am&ndash;12pm CT</p>
 </div></section>
+</main>
 
 <footer><div class="container">
   <div class="footer-grid">
@@ -404,15 +414,10 @@ function submitAudit(){
     "addressRegion": "TX",
     "addressCountry": "US"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 29.4241,
-    "longitude": -98.4936
-  },
   "areaServed": [
     {"@type": "City", "name": "San Antonio", "containedInPlace": {"@type": "State", "name": "Texas"}},
     {"@type": "City", "name": "Alamo Heights"},
-    {"@type": "City", "name": "Stone Oak"},
+    {"@type": "Place", "name": "Stone Oak, San Antonio, TX"},
     {"@type": "City", "name": "Boerne"},
     {"@type": "City", "name": "New Braunfels"}
   ],
