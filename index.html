@@ -106,6 +106,12 @@
   .step-content{position:relative;z-index:1}
   .step h3{font-weight:700;font-size:1.05rem;color:var(--stone-900);margin-bottom:6px}
   .step p{font-size:.92rem;color:var(--stone-600);line-height:1.6}
+  /* ABOUT */
+  .about-bg{background:var(--white)}
+  .about-card{max-width:720px;border-left:3px solid var(--teal-700);padding:4px 0 4px 24px}
+  .about-card p{font-size:1.05rem;color:var(--stone-600);line-height:1.7;margin-bottom:14px}
+  .about-card p:last-child{margin-bottom:0}
+  .about-card strong{color:var(--stone-900)}
   /* AUDIT SECTION */
   .audit-section{background:var(--stone-900);color:var(--white);position:relative;overflow:hidden}
   .audit-section::before{content:'';position:absolute;top:-40%;right:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(15,118,110,.12) 0%,transparent 70%);pointer-events:none}
@@ -207,7 +213,7 @@
   @media(prefers-color-scheme:dark){
     html,body{background-color:#fafaf9!important;color:#292524!important}
     nav{background:rgba(250,250,249,.92)!important;border-bottom-color:#e7e5e4!important}
-    .services-bg,.pricing-bg{background-color:#fff!important}
+    .services-bg,.pricing-bg,.about-bg{background-color:#fff!important}
     .faq-bg{background-color:#fafaf9!important}
     .faq-item{background-color:#fff!important}
     .faq-item summary{color:#1c1917!important}.faq-item p{color:#57534e!important}
@@ -269,6 +275,16 @@
     <div class="step"><span class="step-watermark" aria-hidden="true">02</span><div class="step-content"><h3>We talk about what I found</h3><p>Quick text or email. I'll tell you the 3 things hurting you most and what I'd do about them. No pressure, no pitch deck.</p></div></div>
     <div class="step"><span class="step-watermark" aria-hidden="true">03</span><div class="step-content"><h3>I send a one-page proposal</h3><p>Clear scope. Clear price. Clear timeline. If it makes sense for you, I start that week. If not, no hard feelings.</p></div></div>
     <div class="step"><span class="step-watermark" aria-hidden="true">04</span><div class="step-content"><h3>First results within a few business days</h3><p>I don't make you wait weeks to see something. You'll see a tangible improvement within a few business days of saying yes.</p></div></div>
+  </div>
+</div></section>
+
+<section class="about-bg" id="about" aria-labelledby="about-title"><div class="container">
+  <span class="label">About</span>
+  <h2 class="section-title" id="about-title">Who you'll work with</h2>
+  <div class="about-card">
+    <!-- Photo of Jon and 1-2 background sentences go here once Jon provides/approves them (site plan #2). -->
+    <p>Hi, I'm <strong>Jon Holland</strong>. I live in San Antonio and work directly with every client. No account managers, no hand-offs.</p>
+    <p>I work by appointment. I reply to email within 1 to 2 business days, and I take calls Tue &amp; Thu 6&ndash;7pm and Sat 10am&ndash;12pm CT.</p>
   </div>
 </div></section>
 
