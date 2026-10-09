@@ -162,6 +162,11 @@
   .addon-price{font-weight:700;color:var(--teal-700);font-size:.95rem;margin-bottom:6px}
   .addon-card p.desc{font-size:.8rem;color:var(--stone-600);line-height:1.5}
   .pricing-footer{text-align:center;font-size:.88rem;color:var(--stone-600);margin-top:36px}
+  .kit-band{margin-top:48px;border:1px solid var(--stone-200);border-radius:14px;padding:28px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--stone-50)}
+  .kit-band h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--stone-900);margin-bottom:6px}
+  .kit-band p{font-size:.92rem;color:var(--stone-600);line-height:1.6;max-width:600px}
+  .kit-band .kit-small{font-size:.8rem;margin-top:6px}
+  .kit-band .btn-secondary{flex-shrink:0}
   /* FAQ */
   .faq-bg{background:var(--stone-50)}
   .faq-list{display:flex;flex-direction:column;gap:16px;max-width:780px}
@@ -220,10 +225,10 @@
     .faq-item{background-color:#fff!important}
     .faq-item summary{color:#1c1917!important}.faq-item p{color:#57534e!important}
     .audit-section{background-color:#1c1917!important}footer{background-color:#1c1917!important}
-    .service-card,.addon-card,.stacks-card{background-color:#fafaf9!important}
+    .service-card,.addon-card,.stacks-card,.kit-band{background-color:#fafaf9!important}
     .base-card{background-color:#fff!important;border-color:#1c1917!important}
-    .hero h1,.section-title,.service-card h3,.base-card h3,.stacks-card h3,.addon-card h4,.step h3,.nav-logo,.base-price,.stack-name,.closing-cta h2{color:#1c1917!important}
-    .hero p,.section-sub,.service-card p.desc,.step p,.base-desc,.addon-card p.desc,.trust-item,.base-price span,.base-features li,.stack-channels,.pricing-footer,.closing-cta p,.addon-note,.hero-phone,.closing-cta-phone,.closing-cta-hours{color:#57534e!important}
+    .kit-band h3,.hero h1,.section-title,.service-card h3,.base-card h3,.stacks-card h3,.addon-card h4,.step h3,.nav-logo,.base-price,.stack-name,.closing-cta h2{color:#1c1917!important}
+    .hero p,.section-sub,.service-card p.desc,.step p,.base-desc,.addon-card p.desc,.trust-item,.base-price span,.base-features li,.stack-channels,.pricing-footer,.kit-band p,.closing-cta p,.addon-note,.hero-phone,.closing-cta-phone,.closing-cta-hours{color:#57534e!important}
     .nav-phone{color:#292524!important}.hero-phone a,.closing-cta-phone a{color:#1c1917!important}
     .label,.service-price,.service-num,.addon-price,.stack-price{color:#0f766e!important}
     .btn-primary,.nav-cta,.base-badge{background-color:#1c1917!important;color:#fff!important}
@@ -366,6 +371,14 @@ function submitAudit(){
     <div class="addon-card"><h4>Email Campaigns</h4><p class="addon-price">+$150/mo</p><p class="desc">One campaign/month &mdash; written, designed, sent.</p></div>
   </div>
   <p class="pricing-footer">All plans are month-to-month. No commitments. Cancel anytime.</p>
+  <div class="kit-band" id="kit">
+    <div>
+      <h3>Rather do it yourself?</h3>
+      <p>My $29 Local Service Business Marketing Kit gives you checklists, scripts, and templates for your Google profile, reviews, and mailers. Plain English, about two weeks of work.</p>
+      <p class="kit-small">14-day money-back guarantee through Gumroad. Want a second opinion first? The free audit is still free.</p>
+    </div>
+    <a href="https://brandstrategist15.gumroad.com/l/local-service-marketing-kit" class="btn btn-secondary" target="_blank" rel="noopener">Get the $29 kit</a>
+  </div>
 </div></section>
 
 <section class="faq-bg" id="faq"><div class="container">
