@@ -1,0 +1,29 @@
+# TO ACTIVATE: move this file to .github/workflows/indexnow.yml (needs a GitHub login with the "workflow" permission).
+name: IndexNow ping after production deploy
+
+# Vercel's GitHub integration posts a GitHub deployment status when a deploy
+# finishes. We run only when the Production deployment succeeds, so the new
+# commit is already being served when we ping.
+on:
+  deployment_status:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: true
+
+jobs:
+  ping:
+    if: >-
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+      - name: Ping IndexNow with sitemap URLs
+        run: bash scripts/indexnow-ping.sh
