@@ -126,10 +126,12 @@
   .checklist li svg{flex-shrink:0;margin-top:2px;color:var(--teal-700)}
   .audit-form-wrap{background:rgba(255,255,255,.03);padding:32px;border-radius:14px;border:1px solid rgba(255,255,255,.1)}
   .audit-form{display:flex;flex-direction:column;gap:14px}
-  .audit-form input,.audit-form textarea{font-family:var(--font-body);font-size:.95rem;padding:14px 16px;border:1px solid rgba(255,255,255,.15);border-radius:10px;background:rgba(255,255,255,.06);color:var(--white);outline:none;width:100%;transition:border-color .2s}
+  .audit-form input,.audit-form textarea,.audit-form select{font-family:var(--font-body);font-size:.95rem;padding:14px 16px;border:1px solid rgba(255,255,255,.15);border-radius:10px;background:rgba(255,255,255,.06);color:var(--white);outline:none;width:100%;transition:border-color .2s}
   .audit-form input::placeholder,.audit-form textarea::placeholder{color:var(--stone-400)}
   .audit-form input:focus,.audit-form textarea:focus{border-color:rgba(255,255,255,.35)}
   .audit-form textarea{resize:vertical;min-height:56px}
+  .audit-form select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#a8a29e 50%),linear-gradient(135deg,#a8a29e 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+  .audit-form select option{color:#1c1917;background:#fff}
   .audit-form .field{display:flex;flex-direction:column;gap:6px}
   .audit-form label{font-size:.85rem;font-weight:600;color:var(--stone-300)}
   .audit-form label .opt{font-weight:400;color:var(--stone-400)}
@@ -243,6 +245,7 @@
     .btn-white{background-color:#fff!important;color:#1c1917!important}
     .audit-section .label{color:#f59e0b!important}.audit-section .section-title{color:#fff!important}
     .audit-left-sub{color:#a8a29e!important}.checklist li{color:#d6d3d1!important}
+    .audit-form input,.audit-form textarea,.audit-form select{background-color:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.15)!important;color:#fff!important}
     .audit-form input,.audit-form textarea{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.15)!important;color:#fff!important}
     .footer-name{color:#fff!important}footer p,footer a,.footer-right a{color:#a8a29e!important}
     #audit-success h3{color:#fff!important}#audit-success p{color:#d6d3d1!important}
@@ -324,6 +327,10 @@
       <div class="field"><label for="f-location">Area you serve <span class="opt">(optional)</span></label><input type="text" id="f-location" name="location" placeholder="e.g. Stone Oak"></div>
       <div class="field"><label for="f-email">Email for the report</label><input type="email" id="f-email" name="email" autocomplete="email" required></div>
       <div class="field"><label for="f-listing">Link to your Google listing <span class="opt">(optional)</span></label><input type="text" id="f-listing" name="listing" inputmode="url" placeholder="Paste a Google Maps link"></div>
+      <div class="field"><label for="f-trade">Type of business or trade <span class="opt">(optional)</span></label><input type="text" id="f-trade" name="trade" placeholder="e.g. plumbing, HVAC, lawn care"></div>
+      <div class="field"><label for="f-setup">Do customers come to you? <span class="opt">(optional)</span></label><select id="f-setup" name="setup"><option value="">Choose one</option><option value="Storefront or office customers visit">Storefront or office customers visit</option><option value="I go to customers (work from home / service area)">I go to customers (work from home / service area)</option><option value="Both">Both</option></select></div>
+      <div class="field"><label for="f-website">Do you have a website? <span class="opt">(optional)</span></label><select id="f-website" name="website"><option value="">Choose one</option><option value="Yes">Yes</option><option value="No">No</option></select></div>
+      <div class="field"><label for="f-reviews">About how many Google reviews do you have? <span class="opt">(optional)</span></label><select id="f-reviews" name="reviews"><option value="">Choose one</option><option value="None yet">None yet</option><option value="1-10">1&ndash;10</option><option value="11-50">11&ndash;50</option><option value="51-100">51&ndash;100</option><option value="100+">100+</option><option value="Not sure">Not sure</option></select></div>
       <div class="hp" aria-hidden="true"><label for="f-gotcha">Leave this empty</label><input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <div class="field"><label for="f-notes">Anything specific? <span class="opt">(optional)</span></label><textarea id="f-notes" name="notes" rows="3"></textarea></div>
       <button type="submit" class="btn btn-white">Request Your Free Audit</button>
@@ -340,7 +347,7 @@
 function submitAudit(ev){
   if(ev)ev.preventDefault();
   var f=document.getElementById('audit-form'),b=f.querySelector('button'),d={};
-  f.querySelectorAll('input,textarea').forEach(function(e){if(e.name&&e.name!=='_gotcha')d[e.name]=e.value});
+  f.querySelectorAll('input,textarea,select').forEach(function(e){if(e.name&&e.name!=='_gotcha')d[e.name]=e.value});
   if(f.querySelector('input[name="_gotcha"]').value)return false;
   if(!d.business||!d.email){b.textContent='Please fill in business name and email';setTimeout(function(){b.textContent='Request Your Free Audit'},2500);return false}
   b.textContent='Sending...';b.disabled=true;
