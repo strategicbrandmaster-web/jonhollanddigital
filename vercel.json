@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    { "source": "/stone-oak", "destination": "/", "statusCode": 308 },
+    { "source": "/stone-oak/", "destination": "/", "statusCode": 308 },
+    { "source": "/alamo-heights", "destination": "/", "statusCode": 308 },
+    { "source": "/alamo-heights/", "destination": "/", "statusCode": 308 },
+    { "source": "/boerne", "destination": "/", "statusCode": 308 },
+    { "source": "/boerne/", "destination": "/", "statusCode": 308 },
+    { "source": "/new-braunfels", "destination": "/", "statusCode": 308 },
+    { "source": "/new-braunfels/", "destination": "/", "statusCode": 308 }
+  ]
+}
